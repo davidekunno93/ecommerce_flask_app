@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <body class="gainsboro-light">
+    
+    <p class="xx-large center-text">Sign In</p>
+    <div class="signin-box">
+        <div class="form-box mt-5">
+            
+
+            <form method="POST">
+                <!-- hidden tag required (from secret_tag in config and .env) to authenticate form -->
+                {{ login_form.hidden_tag() }}
+                <div style="width: 600px; margin: auto;">
+                    <label for="un" class="form-label m0">&nbsp;Username</label>
+                    {{ login_form.username(class='form-control mb-1', id="un", placeholder='Enter your Username') }}
+                    <label for="pw" class="form-label m0">&nbsp;Password</label>
+                    {{ login_form.password(class='form-control mb-1', id="pw", placeholder='Enter your Password') }}
+                    <br>
+                </div> 
+                {{ login_form.login(class='btn btn-dark', id='register-btn') }}
+            </form>
+
+        </div>
+    </div>
+    <a class="sign-in center-text large" href="/register">Don't have an account? Sign Up</a>
+
+
+
+
+</body>
+{% endblock %}

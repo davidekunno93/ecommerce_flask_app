@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body class="gainsboro">
+
+    <div class="mt-5"></div>
+
+    <div class="cart-card flx-c pad8">
+        <div class="ro flx3 flx-r">
+            <div class="col flx2">
+                <img class="cart-img" src="../static/images/zelda.webp">
+            </div>
+            <div class="col flx3 x-large">
+                <p><strong>Name:</strong></p>
+                <p class="xx-large">Price:</p>
+            </div>
+        </div>
+        <div class="ro flx2 flx-r pad8 border-top">
+            <div class="col flx-r flx2 just-se">
+                <div class="inc-dec">
+                    <button class="btn btn-dark" id="decrement">-</button>
+                    <p class="num-items center-text large">#</p>
+                    <button class="btn btn-dark" id="increment">+</button>
+                </div>
+                <button class="btn btn-danger">Delete item?</button>
+            </div>
+            <div class="col flx3"></div>
+        </div>
+
+
+    </div>
+
+
+</body>
+{% endblock %}

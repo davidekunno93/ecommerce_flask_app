@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body style="background-color: gainsboro;">
+    <div class="big-container"
+        style="margin-top: 50px; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly;">
+
+        {% for k in range(pg_start, pg_end) %}
+        {% set product_no = k+1 %}
+
+        <div class="card">
+            <div class="column" style="height: 250px;">
+                <a href="/product/{{k+1}}"><img
+                        style="display: block; margin: auto; max-height: 250px; max-width: 350px;" src="{{ p[k]['image'] }}"></a>
+            </div>
+            <div class="column product-title"><a class="product-title"
+                    href="/product/{{k+1}}"><strong> {{ p[k]["name"] }} </strong></a></div>
+            <div class="column" style="height: 30px; text-align: center;"> <strong>Video Game:</strong> {{
+                p[k]["amiiboSeries"] }} </div>
+            <div class="column" style="margin-bottom: 0px; height: 30px; text-align: center;"> <strong>Release:</strong> {{
+                p[k]["release"]["na"] }} </div>
+            <div class="column" style="margin-bottom: 10px; height: 30px; text-align: center; font-size: x-large;"> $12.99
+                 </div>
+            <div class="column" style="margin-bottom: 20px; height: 40px; text-align: center;">
+                <button class="btn btn-primary" id="round" onclick="location.href='/add-product/{{product_no}}'"> Add to Cart </button>
+                <button class="btn btn-light" id="round" onclick="location.href='/product/{{product_no}}'"> View item </button>
+            </div>
+        </div>
+
+        {% endfor %}
+        <div class="pages flx-r just-ce">
+            {% for k in range(20) %}
+            <div class="pg-no">
+                <a href="/products/{{k+1}}">page {{k+1}}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

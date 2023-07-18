@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<body class="gainsboro">
+<div class="ind-card flx-c">
+    <div class="col flx-r">
+        <div class="pic flx1">
+            <img class="ind-img" src="{{ p.img_url }}">
+        </div>
+        <div class="info flx-c flx2">
+            <div class="row flx1 flx-r pad8 just-se">
+                <button class="btn btn-primary" id="ind-round"> Add to Cart </button>
+                <button class="btn btn-light" id="ind-round" onclick="location.href='/products/{{p.page}}'"> Go Back </button>
+            </div>
+            <div class="row flx2">
+                <div class="price-box">
+                    <p class="xxx-large center-text white">$12.99</p>
+                </div>
+            </div>
+            <div class="row flx1 pad28">
+                <p class="m0"><strong>Video Game:</strong></p>
+                <p class="m0">{{ p.game_series }}</p>
+            </div>
+            <div class="row flx1 pad28">
+                <p class="m0"><strong>Release:</strong></p>
+                <p class="m0">{{ p.release }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col pad8">
+        <strong>Description:</strong><br>
+        {% if p.release %}
+        Amiibo of {{ p.name }} from the Video Game {{ p.video_game }}, this item was released in the US on the {{ p.release_f2 }}.
+        {% else %}
+        Amiibo of {{ p.name }} from the Video Game {{ p.video_game }}.
+        {% endif %}
+    </div>
+</div>
+</body>
+{% endblock %}
